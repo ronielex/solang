@@ -1,0 +1,8 @@
+
+ - assert test
+ - revert test
+ - make create_contract work
+ - transfer/balance
+ - block number
+ - events
+ - selfdestruct/deposit
