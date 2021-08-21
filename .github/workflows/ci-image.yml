@@ -1,4 +1,4 @@
-name: ci-image
+name: Re-create CI image
 on: [workflow_dispatch]
 jobs:
   docker:
