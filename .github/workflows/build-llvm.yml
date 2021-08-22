@@ -24,7 +24,9 @@ jobs:
     needs: create
     steps:
     - run: git clone --depth 1 --branch solana-rustc/11.0-2021-01-05 git://github.com/solana-labs/llvm-project.git
-    - run: cmake -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_ENABLE_TERMINFO=Off
+    - name: Install Ninja
+      uses: llvm/actions/install-ninja@main
+    - run: cmake -G Ninja -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_ENABLE_TERMINFO=Off
         -DLLVM_ENABLE_PROJECTS='clang;lld'
         -DLLVM_TARGETS_TO_BUILD='WebAssembly\;BPF'
         -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=../llvm11.0 llvm
@@ -49,7 +51,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - run: git clone --depth 1 --branch solana-rustc/11.0-2021-01-05 git://github.com/solana-labs/llvm-project.git
-    - run: cmake -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_ENABLE_TERMINFO=Off
+    - name: Install Ninja
+      uses: llvm/actions/install-ninja@main
+    - run: cmake -G Ninja -DLLVM_ENABLE_ASSERTIONS=On -DLLVM_ENABLE_TERMINFO=Off
         -DLLVM_ENABLE_PROJECTS='clang;lld'
         -DLLVM_TARGETS_TO_BUILD='WebAssembly;BPF'
         -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_INSTALL_PREFIX=../llvm11.0 llvm

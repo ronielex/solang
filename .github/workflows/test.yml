@@ -54,7 +54,7 @@ jobs:
         # Make sure "git describe --tags" works for solang --version
         fetch-depth: 0
     - name: Download LLVM
-      run: curl -sS -o c:\llvm.zip https://solang.io/download/llvm11.0-win.zip
+      run: curl -sSL -o c:\llvm.zip https://github.com/seanyoung/solang/releases/download/llvm11.0-1/llvm11.0-win.zip
     - name: Extract LLVM
       run: unzip c:\llvm.zip -d c:/
     - name: Add LLVM to Path
@@ -78,7 +78,7 @@ jobs:
         # Make sure "git describe --tags" works for solang --version
         fetch-depth: 0
     - name: Download LLVM
-      run: curl -sS -o llvm11.0-mac.tar.xz https://solang.io/download/llvm11.0-mac.tar.xz
+      run: curl -sSL -o llvm11.0-mac.tar.xz https://solang.io/download/llvm11.0-mac.tar.xz
     - name: Extract LLVM
       run: tar Jxf llvm11.0-mac.tar.xz
     - name: Add LLVM to Path
